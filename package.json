@@ -1,0 +1,21 @@
+{
+  "name": "ai-stylist-app",
+  "version": "1.0.0",
+  "description": "AI Stylist App - Swatch",
+  "type": "module",
+  "scripts": {
+    "dev": "vercel dev",
+    "build": "echo 'Static site - no build needed'",
+    "lint": "echo 'No linter configured'"
+  },
+  "keywords": [
+    "ai",
+    "stylist",
+    "vercel"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@vercel/speed-insights": "^1.1.0"
+  }
+}
