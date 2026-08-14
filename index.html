@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Swatch — your personal style, decoded</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Work+Sans:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="grain"></div>
+
+<header class="topbar">
+  <div class="mark">Swatch</div>
+  <div class="tag">no algorithm. no trends. just what suits <em>you</em>.</div>
+</header>
+
+<main>
+  <section class="hero">
+    <h1>Tell us about yourself.<br><span class="hero-sub">However you'd like.</span></h1>
+
+    <div class="tabs" role="tablist">
+      <button class="tab active" data-tab="photo" role="tab">📷 Photo</button>
+      <button class="tab" data-tab="text" role="tab">✍️ Describe yourself</button>
+      <button class="tab" data-tab="quiz" role="tab">📋 Quick questions</button>
+    </div>
+
+    <div class="panels">
+
+      <div class="panel active" id="panel-photo">
+        <label class="dropzone" id="dropzone">
+          <input type="file" id="photoInput" accept="image/*" hidden />
+          <div class="dropzone-inner" id="dropzoneInner">
+            <span class="dz-icon">＋</span>
+            <span class="dz-text">Upload a photo of yourself</span>
+            <span class="dz-sub">Good lighting helps. Nothing is stored publicly.</span>
+          </div>
+          <img id="photoPreview" class="photo-preview" hidden />
+        </label>
+      </div>
+
+      <div class="panel" id="panel-text">
+        <textarea id="textInput" placeholder="e.g. I'm curvy, warm undertones, love earthy colors. I work in a corporate job but want to look a little less boring, more like myself on weekends."></textarea>
+      </div>
+
+      <div class="panel" id="panel-quiz">
+        <div class="quiz-grid">
+          <div class="q">
+            <label>Skin undertone, if you know it</label>
+            <select id="q-undertone">
+              <option value="">Not sure</option>
+              <option>Warm</option>
+              <option>Cool</option>
+              <option>Neutral</option>
+            </select>
+          </div>
+          <div class="q">
+            <label>Body shape, if you'd describe it</label>
+            <select id="q-shape">
+              <option value="">Prefer not to say</option>
+              <option>Pear</option>
+              <option>Apple</option>
+              <option>Hourglass</option>
+              <option>Rectangle</option>
+              <option>Inverted triangle</option>
+            </select>
+          </div>
+          <div class="q">
+            <label>Everyday style you're drawn to</label>
+            <input type="text" id="q-style" placeholder="e.g. minimal, streetwear, classic, boho" />
+          </div>
+          <div class="q">
+            <label>What's it for, mostly?</label>
+            <input type="text" id="q-context" placeholder="e.g. work, dates, everyday, events" />
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <p class="hint">Fill in one, two, or all three — the more you share, the sharper the read. None of it is required.</p>
+
+    <button id="submitBtn" class="submit-btn">
+      <span class="btn-label">Read my style</span>
+      <span class="btn-loading" hidden>Reading<span class="dots"><span>.</span><span>.</span><span>.</span></span></span>
+    </button>
+    <p id="errorMsg" class="error-msg" hidden></p>
+  </section>
+
+  <section class="results" id="results" hidden>
+    <div class="results-head">
+      <span class="eyebrow">YOUR READ</span>
+      <p id="summary" class="summary"></p>
+    </div>
+
+    <div class="swatch-row">
+      <div class="swatch-card">
+        <div class="swatch-tab">undertone</div>
+        <div class="swatch-body">
+          <div id="undertoneValue" class="undertone-value">—</div>
+        </div>
+      </div>
+
+      <div class="swatch-card">
+        <div class="swatch-tab">best colors</div>
+        <div class="swatch-body">
+          <div id="colorChips" class="color-chips"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="detail-row">
+      <div class="detail-card">
+        <h3>Cuts that flatter you</h3>
+        <ul id="cutsList"></ul>
+      </div>
+      <div class="detail-card">
+        <h3>Style directions to try</h3>
+        <ul id="stylesList"></ul>
+      </div>
+    </div>
+
+    <button class="again-btn" id="againBtn">Read someone else / try again</button>
+  </section>
+</main>
+
+<footer>
+  <span>Swatch — a calmer way to figure out what suits you.</span>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
